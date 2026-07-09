@@ -19,7 +19,7 @@ const profileImg = "/perfil-pedro.jfif";
       class="reveal-item opacity-0 transform translate-y-8 md:col-span-4 flex"
     >
       <div
-        class="w-full rounded-2xl border border-white/10 overflow-hidden bg-[#121212]/20 backdrop-blur-sm aspect-[5] md:aspect-auto"
+        class="w-full rounded-2xl border border-white/10 overflow-hidden bg-[#121212]/20 backdrop-blur-sm aspect-[4/5] md:aspect-auto"
       >
         <img
           src={profileImg}
@@ -94,38 +94,5 @@ const profileImg = "/perfil-pedro.jfif";
     itemsReveal.forEach((item) => revealObserver.observe(item));
   };
 
-  initRevealAnimation();
-</script>
-
-<script>
-  const initRevealAnimation = () => {
-    const itemsReveal = document.querySelectorAll(".reveal-item");
-
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px 0px -15% 0px",
-      threshold: 0,
-    };
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.remove("opacity-0", "translate-y-8");
-          entry.target.classList.add(
-            "opacity-100",
-            "translate-y-0",
-            "transition-all",
-            "duration-700",
-            "ease-out",
-          );
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    itemsReveal.forEach((item) => revealObserver.observe(item));
-  };
-
-  // Ejecutamos la animación
   initRevealAnimation();
 </script>

@@ -1,10 +1,6 @@
 ---
 // src/components/Gallery.astro
 
-// Usamos la misma imagen del index para mantener la consistencia
-const backgroundImageUrl =
-  "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop";
-
 const placeholderImages = [
   { src: "https://picsum.photos/seed/1/600/800", alt: "Ilustración 1" },
   { src: "https://picsum.photos/seed/2/600/600", alt: "Ilustración 2" },
@@ -17,20 +13,16 @@ const placeholderImages = [
 ];
 ---
 
-<section id="galeria" class="relative py-32 px-6 w-full overflow-hidden">
-  <!-- Capa 1: El fondo fijo (Parallax) -->
+<section
+  id="galeria"
+  class="relative w-full min-h-screen bg-[#121212] py-32 px-6"
+>
   <div
-    class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
-    style={`background-image: url('${backgroundImageUrl}');`}
+    class="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black to-transparent pointer-events-none"
   >
   </div>
 
-  <!-- Capa 2: Filtro de desenfoque (Blur) y leve oscurecimiento para no perder contraste -->
-  <div class="absolute inset-0 bg-[#121212]/60 backdrop-blur-2xl"></div>
-
-  <!-- Capa 3: Contenido de la galería (Debe tener relative y z-10 para ir sobre el fondo) -->
   <div class="relative z-10 max-w-7xl mx-auto">
-    <!-- Texto grande que pediste -->
     <h2
       class="text-5xl md:text-7xl text-white font-serif mb-20 text-center opacity-0 reveal-on-scroll"
     >
