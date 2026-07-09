@@ -1,11 +1,32 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Gallery from "../components/Gallery.astro";
+// Borré el import de About porque ya lo movimos a su propia página
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Cambiamos el enlace largo por tu imagen local
+const bgInicio = "/ilustracion1.png";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Pbpetrus - Portafolio de Ilustración">
+  <Nav />
+
+  <main>
+    <section
+      id="inicio"
+      class="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center"
+      style={`background-image: url('${bgInicio}');`}
+    >
+      <!-- Capa 1: Oscurecemos un poquito todo (bajé a 30% para no apagar tanto el dibujo) -->
+      <div class="absolute inset-0 bg-black/30"></div>
+
+      <!-- Capa 2 (NUEVA): Gradiente oscuro solo arriba para que el menú resalte perfecto -->
+      <div
+        class="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black/80 via-black/40 to-transparent"
+      >
+      </div>
+    </section>
+
+    <Gallery />
+  </main>
 </Layout>

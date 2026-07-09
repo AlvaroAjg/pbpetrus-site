@@ -1,0 +1,109 @@
+<header
+  class="absolute top-0 left-0 right-0 z-50 px-6 pt-10 pb-24 bg-gradient-to-b from-black/90 via-black/50 to-transparent pointer-events-none"
+>
+  <!-- Agregamos pointer-events-none al header y pointer-events-auto al nav para que el gradiente no bloquee clics accidentales -->
+  <nav
+    class="max-w-6xl mx-auto flex flex-col items-center gap-4 pointer-events-auto"
+  >
+    <a
+      href="/"
+      class="font-serif text-8xl font-semibold text-white tracking-wide [text-shadow:_0_4px_12px_rgb(0_0_0_/_100%),_0_0_30px_rgb(0_0_0_/_80%)] hover:scale-105 transition-transform"
+    >
+      Pbpetrus
+    </a>
+
+    <ul class="flex gap-8 list-none m-0 p-4">
+      <li>
+        <!-- Añadido bg-black/40, backdrop-blur-md y text-white sólido -->
+        <a
+          href="/"
+          class="text-xl text-white font-medium hover:bg-white/10 transition-colors border border-white/30 rounded-full px-6 py-3 bg-black/40 backdrop-blur-md [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%)] shadow-lg"
+          >Inicio</a
+        >
+      </li>
+      <li>
+        <a
+          href="/#galeria"
+          class="text-xl text-white font-medium hover:bg-white/10 transition-colors border border-white/30 rounded-full px-6 py-3 bg-black/40 backdrop-blur-md [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%)] shadow-lg"
+          >Galeria</a
+        >
+      </li>
+      <li>
+        <a
+          href="/sobre-mi"
+          class="text-xl text-white font-medium hover:bg-white/10 transition-colors border border-white/30 rounded-full px-6 py-3 bg-black/40 backdrop-blur-md [text-shadow:_0_2px_4px_rgb(0_0_0_/_100%)] shadow-lg"
+          >Sobre mi</a
+        >
+      </li>
+    </ul>
+
+    <div class="flex flex-col items-center gap-3 mt-2">
+      <!-- Texto Contacto con sombra -->
+      <span
+        class="text-2xl text-white font-hand tracking-wider [text-shadow:_0_2px_8px_rgb(0_0_0_/_100%)]"
+        >Contacto</span
+      >
+
+      <div class="flex gap-4">
+        <!-- Íconos con fondo de cristal ahumado -->
+        <a
+          href="https://instagram.com/pbpetrus"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram de Pedro"
+          class="w-12 h-12 rounded-lg border border-white/30 bg-black/40 backdrop-blur-md hover:bg-white/10 hover:scale-110 transition-all flex items-center justify-center text-white shadow-lg"
+        >
+          <svg
+            class="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"
+            ></circle>
+          </svg>
+        </a>
+
+        <a
+          href="mailto:hola@pbpetrus.com"
+          aria-label="Enviar correo a Pedro"
+          class="w-12 h-12 rounded-lg border border-white/30 bg-black/40 backdrop-blur-md hover:bg-white/10 hover:scale-110 transition-all flex items-center justify-center text-white shadow-lg"
+        >
+          <svg
+            class="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="M3 7l9 6 9-6"></path>
+          </svg>
+        </a>
+
+        <a
+          href="https://wa.me/56900000000"
+          target="_blank"
+          rel="noopener"
+          aria-label="WhatsApp de Pedro"
+          class="w-12 h-12 rounded-lg border border-white/30 bg-black/40 backdrop-blur-md hover:bg-white/10 hover:scale-110 transition-all flex items-center justify-center text-white shadow-lg"
+        >
+          <svg
+            class="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path d="M21 11.5a8.5 8.5 0 1 1-4-7.2"></path>
+            <path d="M21 3l-6 6"></path>
+            <path d="M7 12l2.5 2.5L17 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
