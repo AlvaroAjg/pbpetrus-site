@@ -44,6 +44,6 @@ Este es el repositorio del portafolio profesional de **Pedro (Pbpetrus)**, ilust
 
 - [ ] **Integrar fotos reales a la Galería:** Reemplazar el arreglo de imágenes de prueba (`placeholderImages` extraídas de Unsplash/Picsum) por los enlaces a las obras finales de ilustración y diseño de Pedro guardadas en la carpeta `/public`.
 - [ ] **Añadir información real:** Reemplazar los párrafos descriptivos actuales en el componente `About.astro` por la biografía oficial e historia de Pedro.
-- [ ] _(Opcional)_: Ajustar metadatos (título y descripción) en las etiquetas `<head>` para mejorar el SEO una vez que el contenido esté al 100%.
+- [ ] Ajustar metadatos (título y descripción) en las etiquetas `<head>` para mejorar el SEO una vez que el contenido esté al 100%.
 
 ---
