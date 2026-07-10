@@ -1,46 +1,49 @@
-# Astro Starter Kit: Basics
+# Pbpetrus - Portafolio de Ilustración
 
-```sh
-npm create astro@latest -- --template basics
-```
+Este es el repositorio del portafolio profesional de **Pedro (Pbpetrus)**, ilustrador y artista visual. El proyecto está diseñado para ser rápido, responsivo y destacar el trabajo artístico a través de un diseño oscuro elegante, minimalista y con efectos modernos.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tecnologías Utilizadas
 
-## 🚀 Project Structure
+- **[Astro](https://astro.build/)**: Framework principal para generar un sitio estático súper rápido.
+- **[Tailwind CSS](https://tailwindcss.com/)**: Para la maquetación responsiva, paleta de colores y efectos visuales avanzados (como el Glassmorphism).
+- **JavaScript (Vanilla)**: Implementado para animaciones fluidas al hacer scroll mediante la API de `IntersectionObserver`.
 
-Inside of your Astro project, you'll see the following folders and files:
+---
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Lo que ya llevamos construido (Completado)
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+### 1. Navegación Global (`Nav.astro`)
 
-## 🧞 Commands
+- Menú completamente responsivo (adaptable dinámicamente a celulares, tablets y monitores).
+- Efecto _Glassmorphism_ (cristal ahumado oscuro) en botones y redes sociales que garantiza que los textos siempre se lean bien, sin importar qué ilustración de fondo se coloque.
+- Botones de contacto configurados:
+  - Redirección a Instagram y Behance (con sus logos oficiales actualizados).
+  - Enlace de correo que redirige directamente a la plataforma web de Gmail listo para redactar.
 
-All commands are run from the root of the project, from a terminal:
+### 2. Página de Inicio (`index.astro`)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Sección principal (Hero) de pantalla completa (`min-h-screen`) con la ilustración a tinta de fondo.
+- Gradientes oscuros controlados en la parte superior para maximizar el contraste y legibilidad del menú.
 
-## 👀 Want to learn more?
+### 3. Galería de Trabajos (`Gallery.astro`)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Sistema de columnas asimétricas (estilo _Masonry_) que se adapta de 1 columna en celulares a 3 en computadoras.
+- Animaciones de revelado suave al hacer scroll.
+- Efecto de zoom (`scale`) al pasar el cursor sobre las imágenes.
+- Solución de diseño para evitar _pixelado/banding_ mediante un degradado corto de negro a gris oscuro (`#121212`).
+
+### 4. Sección Sobre Mí (`sobre-mi.astro` & `About.astro`)
+
+- Estructura limpia sobre un fondo negro puro (`bg-black`) para eliminar ruidos visuales.
+- Uso de tarjetas flotantes translúcidas para el texto.
+- Implementación de la foto de perfil en formato _paper cutout_ ajustada correctamente para retratos (`aspect-[4/5]`).
+
+---
+
+## Lo que falta por hacer (To-Do)
+
+- [ ] **Integrar fotos reales a la Galería:** Reemplazar el arreglo de imágenes de prueba (`placeholderImages` extraídas de Unsplash/Picsum) por los enlaces a las obras finales de ilustración y diseño de Pedro guardadas en la carpeta `/public`.
+- [ ] **Añadir información real:** Reemplazar los párrafos descriptivos actuales en el componente `About.astro` por la biografía oficial e historia de Pedro.
+- [ ] _(Opcional)_: Ajustar metadatos (título y descripción) en las etiquetas `<head>` para mejorar el SEO una vez que el contenido esté al 100%.
+
+---

@@ -17,10 +17,8 @@ const bgInicio = "/fondo_index.jpeg";
       class="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center"
       style={`background-image: url('${bgInicio}');`}
     >
-      <!-- Capa 1: Oscurecemos un poquito todo (bajé a 30% para no apagar tanto el dibujo) -->
       <div class="absolute inset-0 bg-black/30"></div>
 
-      <!-- Capa 2 (NUEVA): Gradiente oscuro solo arriba para que el menú resalte perfecto -->
       <div
         class="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black/80 via-black/40 to-transparent"
       >
