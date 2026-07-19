@@ -1,25 +1,28 @@
 ---
 
-const obras = [
-  
-  { src: "/amor.png", title: "Amor", alt: "Ilustración Amor" },
-  { src: "/placer.png", title: "Placer", alt: "Ilustración Placer" },
-  { src: "/parasito.png", title: "Parásito", alt: "Ilustración Parásito" },
-  { src: "/consumismo.png", title: "Consumismo", alt: "Ilustración Consumismo" },
-  
-  
-  { src: "/Rata 2.png", alt: "Rata 2" },
-  { src: "/Print.jpg", alt: "Print" },
-  { src: "/Print (1).jpg", alt: "Print 1" },
-  { src: "/Saturno2.png", alt: "Saturno" },
-  { src: "/ilustracion.png", alt: "Ilustración sin título" },
-  { src: "/escaner.jpg", alt: "Escáner 20260426 2" },
-  { src: "/Escáner_20250815.png", alt: "Escáner 20250815" },
-  { src: "/calaca.jpg", alt: "Calaca" }
-];
+import { getCollection } from 'astro:content';
 
-const obrasDestacadas = obras.slice(0, 4); 
-const obrasRestantes = obras.slice(4);     
+// 1. Obtenemos TODAS las obras que Keystatic ha guardado
+const obrasKeystatic = await getCollection('obras');
+
+// 2. Filtramos las destacadas (le agregamos : any a los parámetros)
+const obrasDestacadas = obrasKeystatic
+  .filter((obra: any) => obra.data.isFeatured)
+  .map((obra: any) => ({
+    src: obra.data.image,
+    title: obra.data.title || '',
+    alt: obra.data.title || 'Ilustración destacada'
+  }));
+
+// 3. Filtramos las restantes
+const obrasRestantes = obrasKeystatic
+  .filter((obra: any) => !obra.data.isFeatured)
+  .map((obra: any) => ({
+    src: obra.data.image,
+    title: obra.data.title || '',
+    alt: obra.data.title || 'Ilustración general'
+  }));
+
 ---
 
 <section id="galeria" class="pb-24 pt-12 px-4 md:px-8 max-w-[1400px] mx-auto">
@@ -34,7 +37,7 @@ const obrasRestantes = obras.slice(4);
 
   
   <div class="columns-1 md:columns-2 lg:columns-4 gap-6 mb-6">
-    {obrasDestacadas.map((obra) => (
+    {obrasDestacadas.map((obra: any) => (
       <div 
         class="gallery-item cursor-pointer relative group break-inside-avoid overflow-hidden rounded-xl border border-white/10 shadow-2xl bg-[#121212] mb-6"
         data-src={obra.src}
@@ -57,8 +60,8 @@ const obrasRestantes = obras.slice(4);
   </div>
 
   
-  <div class="columns-1 md:columns-2 lg:columns-3 gap-6">
-    {obrasRestantes.map((obra) => (
+  <div class="columns-1 md:columns-2 lg:columns-4 gap-6">
+    {obrasRestantes.map((obra: any) => (
       <div 
         class="gallery-item cursor-pointer relative group break-inside-avoid overflow-hidden rounded-xl border border-white/10 shadow-2xl bg-[#121212] mb-6"
         data-src={obra.src}
@@ -99,6 +102,18 @@ const obrasRestantes = obras.slice(4);
 
     if (!modal || !modalImg || !modalTitle) return;
 
+    const closeModal = () => {
+      modal.classList.add('opacity-0');
+      modalImg.classList.remove('scale-100');
+      modalImg.classList.add('scale-95');
+      
+      setTimeout(() => {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+        modalImg.setAttribute('src', ''); 
+      }, 300);
+    };
+
     items.forEach(item => {
       item.addEventListener('click', () => {
         const src = item.getAttribute('data-src');
@@ -124,16 +139,13 @@ const obrasRestantes = obras.slice(4);
       });
     });
 
-    modal.addEventListener('click', () => {
-      modal.classList.add('opacity-0');
-      modalImg.classList.remove('scale-100');
-      modalImg.classList.add('scale-95');
-      
-      setTimeout(() => {
-        modal.classList.remove('flex');
-        modal.classList.add('hidden');
-        modalImg.setAttribute('src', ''); 
-      }, 300);
+    modal.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (event) => {
+      // Verificamos que la tecla sea Escape y que el modal esté abierto
+      if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
     });
   };
 
