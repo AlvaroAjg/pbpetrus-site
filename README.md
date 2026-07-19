@@ -1,49 +1,27 @@
-# Pbpetrus - Portafolio de Ilustración
+#  Portafolio de Ilustración de Alto Rendimiento
 
-Este es el repositorio del portafolio profesional de **Pedro (Pbpetrus)**, ilustrador y artista visual. El proyecto está diseñado para ser rápido, responsivo y destacar el trabajo artístico a través de un diseño oscuro elegante, minimalista y con efectos modernos.
+Una plataforma web rápida, escalable y autogestionable construida para exhibir arte e ilustraciones. Diseñada con un enfoque en la experiencia de usuario (UI/UX) y respaldada por una arquitectura moderna orientada al rendimiento y la autonomía del cliente.
 
-## Tecnologías Utilizadas
+##  Tecnologías Utilizadas (Tech Stack)
 
-- **[Astro](https://astro.build/)**: Framework principal para generar un sitio estático súper rápido.
-- **[Tailwind CSS](https://tailwindcss.com/)**: Para la maquetación responsiva, paleta de colores y efectos visuales avanzados (como el Glassmorphism).
-- **JavaScript (Vanilla)**: Implementado para animaciones fluidas al hacer scroll mediante la API de `IntersectionObserver`.
+* **Framework Frontend:** [Astro](https://astro.build/) - Elegido por su entrega de HTML estático ultra rápido y su filosofía de "Cero JavaScript por defecto".
+* **Estilos:** [Tailwind CSS](https://tailwindcss.com/) - Para un diseño responsive, utility-first y la implementación de efectos complejos como *Glassmorphism*.
+* **Gestor de Contenidos (CMS):** [Keystatic](https://keystatic.com/) - Un CMS basado en Git (Local/Nube) que permite gestionar el portafolio sin necesidad de bases de datos externas.
+* **Pipeline CI/CD:** GitHub Actions.
+* **Despliegue (Hosting):** Vercel.
 
----
+##  Características Principales (Features)
 
-## Lo que ya llevamos construido (Completado)
+### 1. Interfaz y Experiencia de Usuario (UI/UX)
+* **Estética Dark/Premium:** Paleta de colores oscuros con acentos en rojo, texturas de ruido y efectos *Glassmorphism* (desenfoques de fondo) en la navegación y modales.
+* **Galería Híbrida (Masonry Layout):** Sistema de columnas CSS avanzado que adapta las imágenes sin recortarlas. Incluye un sistema de jerarquía que destaca automáticamente las obras principales.
+* **Visor Interactivo:** Modal de alta velocidad construido con JavaScript vanilla para visualizar las obras a pantalla completa, optimizado con eventos de teclado (`Escape`) y clics fuera del contenedor.
 
-### 1. Navegación Global (`Nav.astro`)
+### 2. Autogestión de Contenido (CMS)
+* Integración total con **Keystatic**, permitiendo al propietario del portafolio agregar, editar o eliminar ilustraciones de forma autónoma.
+* Las actualizaciones de contenido generan archivos `.json` automáticamente y empujan los cambios al repositorio, desencadenando despliegues automáticos.
+* Sistema de "Obras Destacadas" gestionable a través de un simple *checkbox* en el panel de control.
 
-- Menú completamente responsivo (adaptable dinámicamente a celulares, tablets y monitores).
-- Efecto _Glassmorphism_ (cristal ahumado oscuro) en botones y redes sociales que garantiza que los textos siempre se lean bien, sin importar qué ilustración de fondo se coloque.
-- Botones de contacto configurados:
-  - Redirección a Instagram y Behance (con sus logos oficiales actualizados).
-  - Enlace de correo que redirige directamente a la plataforma web de Gmail listo para redactar.
-
-### 2. Página de Inicio (`index.astro`)
-
-- Sección principal (Hero) de pantalla completa (`min-h-screen`) con la ilustración a tinta de fondo.
-- Gradientes oscuros controlados en la parte superior para maximizar el contraste y legibilidad del menú.
-
-### 3. Galería de Trabajos (`Gallery.astro`)
-
-- Sistema de columnas asimétricas (estilo _Masonry_) que se adapta de 1 columna en celulares a 3 en computadoras.
-- Animaciones de revelado suave al hacer scroll.
-- Efecto de zoom (`scale`) al pasar el cursor sobre las imágenes.
-- Solución de diseño para evitar _pixelado/banding_ mediante un degradado corto de negro a gris oscuro (`#121212`).
-
-### 4. Sección Sobre Mí (`sobre-mi.astro` & `About.astro`)
-
-- Estructura limpia sobre un fondo negro puro (`bg-black`) para eliminar ruidos visuales.
-- Uso de tarjetas flotantes translúcidas para el texto.
-- Implementación de la foto de perfil en formato _paper cutout_ ajustada correctamente para retratos (`aspect-[4/5]`).
-
----
-
-## Lo que falta por hacer (To-Do)
-
-- [ ] **Integrar fotos reales a la Galería:** Reemplazar el arreglo de imágenes de prueba (`placeholderImages` extraídas de Unsplash/Picsum) por los enlaces a las obras finales de ilustración y diseño de Pedro guardadas en la carpeta `/public`.
-- [ ] **Añadir información real:** Reemplazar los párrafos descriptivos actuales en el componente `About.astro` por la biografía oficial e historia de Pedro.
-- [ ] Ajustar metadatos (título y descripción) en las etiquetas `<head>` para mejorar el SEO una vez que el contenido esté al 100%.
-
----
+### 3. Prácticas DevOps y Despliegue
+* **Integración Continua (CI):** Configuración de un pipeline en GitHub Actions (`ci.yml`) que verifica la integridad del build de Astro en entornos Linux con Node.js 20.x antes de cada integración a la rama principal.
+* **Despliegue Continuo (CD):** Integración nativa con Vercel para pases a producción automáticos sin intervención manual.
