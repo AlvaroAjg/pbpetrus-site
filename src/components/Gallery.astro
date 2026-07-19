@@ -2,10 +2,10 @@
 
 import { getCollection } from 'astro:content';
 
-// 1. Obtenemos TODAS las obras que Keystatic ha guardado
+
 const obrasKeystatic = await getCollection('obras');
 
-// 2. Filtramos las destacadas (le agregamos : any a los parámetros)
+
 const obrasDestacadas = obrasKeystatic
   .filter((obra: any) => obra.data.isFeatured)
   .map((obra: any) => ({
@@ -14,7 +14,7 @@ const obrasDestacadas = obrasKeystatic
     alt: obra.data.title || 'Ilustración destacada'
   }));
 
-// 3. Filtramos las restantes
+
 const obrasRestantes = obrasKeystatic
   .filter((obra: any) => !obra.data.isFeatured)
   .map((obra: any) => ({
