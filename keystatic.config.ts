@@ -6,7 +6,10 @@ export default config({
   
       kind: import.meta.env.PROD ? 'github' : 'local',
   
-      repo: 'AlvaroAjg/pbpetrus-site', 
+      repo: {
+        owner: 'AlvaroAjg',
+        name: 'pbpetrus-site',
+      }
 },
   
   collections: {
